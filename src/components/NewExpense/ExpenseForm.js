@@ -3,22 +3,53 @@ import React, { useState } from "react";
 import "./ExpenseForm.css";
 
 const ExpenseForm = () => {
+  //v1. "individual-state slices" - repetative but clearer
   const [enteredTitle, setEnteredTitle] = useState("");
   // a value of an element is always a string, even in the value is a number
   const [enteredAmount, setEnteredAmount] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
+  //v2. "one-state slice" - can be messy, would advice not to
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
+
   const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
+    // v.1
+    //setEnteredTitle(event.target.value);
+
+    //v.2
+    setUserInput({
+      // takes amount and date key values (all values), not to lose other data
+      ...userInput,
+      // overwritting existing title value, when updating
+      enteredTitle: event.target.value,
+    })
   };
 
   // if there´s just 1 argument, we can omit the brackets
   const amountChangerHandler = event => {
-    setEnteredAmount(event.target.value);
+    //v.1
+    //setEnteredAmount(event.target.value);
+
+    //v.2
+    setUserInput({
+      ...userInput,
+      enteredAmount: event.target.value,
+    })
   }
 
   const dateChangerHandler = event => {
-    setEnteredDate(event.targer.value);
+    //v.1
+    //setEnteredDate(event.targer.value);
+
+    //v.2
+    setUserInput({
+      ...userInput,
+      enteredDate: event.target.value,
+    })
   };
 
   return (
