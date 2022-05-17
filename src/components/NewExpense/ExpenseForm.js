@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   //v1. "individual-state slices" - repetative but clearer
   const [enteredTitle, setEnteredTitle] = useState("");
   // a value of an element is always a string, even in the value is a number
@@ -60,12 +60,13 @@ const ExpenseForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseDAta = {
+    const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
 
+    props.onSaveExpenseData(expenseData);
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");
