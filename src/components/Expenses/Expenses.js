@@ -6,8 +6,10 @@ import ExpensesFilter from "./ExpensesFilter";
 import "./Expenses.css";
 
 const Expenses = props => {
-  const [filteredYear, setFilteredYear] = useState("2020");
+  // destructuring array with [0] as original varibale value (description of the variable) and [1] as all the next ones
+  const [filteredYear, setFilteredYear] = useState("2020"); // react hook
 
+  // calling the updated function, whenever the state would change (setFilteredYear)
   const filterChangeHandler = selectedYear => {
     setFilteredYear(selectedYear);
   };
