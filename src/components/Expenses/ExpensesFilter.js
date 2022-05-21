@@ -1,4 +1,4 @@
-// import React from 'react'; - not neccessary
+import React from 'react';
 
 import './ExpensesFilter.css';
 
