@@ -17,7 +17,8 @@ const NewExpense = (props) => {
 
   return (
     <div className="new-expense">
-      {/* lifting he state up from ExpenseForm to NewExpense */}
+    <button>Add New Expense</button>
+      {/* lifting the state up from ExpenseForm to NewExpense */}
       <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
     </div>
   );
