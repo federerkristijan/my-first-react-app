@@ -1,30 +1,25 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 
 const initialExpenses = [
   {
-    id: "e1",
-    title: "Cat food",
+    id: 'e1',
+    title: 'Cat food',
     amount: 94.12,
     date: new Date(2020, 7, 14),
   },
+  { id: 'e2', title: 'Cat insurance', amount: 799.49, date: new Date(2021, 2, 12) },
   {
-    id: "e2",
-    title: "Cat insurance",
-    amount: 799.49,
-    date: new Date(2021, 2, 12),
-  },
-  {
-    id: "e3",
-    title: "Dog food",
+    id: 'e3',
+    title: 'Dog food',
     amount: 294.67,
     date: new Date(2021, 2, 28),
   },
   {
-    id: "e4",
-    title: "Dog insurance",
+    id: 'e4',
+    title: 'Dog insurance',
     amount: 10.5,
     date: new Date(2021, 5, 12),
   },
@@ -33,10 +28,10 @@ const initialExpenses = [
 const App = () => {
   const [expenses, setExpenses] = useState(initialExpenses);
 
-  const addExpenseHandler = (expense) => {
-    setExpenses(prevExpenses => {
-      return [expense, ...prevExpenses];
-    });
+  const addExpenseHandler = expense => {
+    setExpenses((previousExpense => {
+      return [expense, ...previousExpense];
+    }));
   };
 
   // return React.createElement(
